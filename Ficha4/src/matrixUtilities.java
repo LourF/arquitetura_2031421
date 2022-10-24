@@ -19,13 +19,52 @@ public class matrixUtilities {
         }
         return true;
     }
-    public static void isIdentity (int[][] matrix){
+    public static boolean isIdentity (int[][] matrix){
         for (int i = 0; i <matrix.length ; i++) {
             for (int j = 0; j <matrix[i].length ; j++) {
-                if (i== j & matrix[i][j] == 1){
-                    
+                if (i== j && matrix[i][j] != 1 || i != j && matrix[i][j]!=0){
+                    return false;
                 }
             }
+
+        }
+        return true;
+    }
+
+    public static int [][] multiplyBy (int [][] matrix,int times ) {
+        int[][] product = new int[matrix.length][matrix[0].length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                product[i][j] = matrix[i][j] * times;
+            }
+        }
+        return product;
+    }
+
+    public static boolean areCompatibleForSum (int[][] matrix, int [][] matrix2){
+        if( matrix.length != matrix2.length ){
+            return false;
+        }
+        for (int i = 0; i < matrix.length ; i++) {
+            if(matrix[i].length != matrix2[i].length)
+                return false;
+        }
+        return true;
+    }
+    public static int [][] sumOf (int [][] matrix,int [][] matrix2){
+        boolean compatible = areCompatibleForSum(matrix,matrix2);
+        if (compatible){
+            int [][] sum = new int [matrix.length][matrix[0].length];
+            for(int i = 0; i<matrix.length; i++){
+                for(int j = 0; j<matrix[i].length; j++){
+                    sum [i][j] = matrix[i][j] + matrix2[i][j];
+                }
+            }
+            return sum;
+        }
+        else{
+            return null;
         }
     }
+
 }
