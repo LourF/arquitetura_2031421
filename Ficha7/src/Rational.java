@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Rational implements Comparable <Rational> {
     private int numerator;
@@ -46,5 +47,15 @@ public class Rational implements Comparable <Rational> {
     }
 
     @Override
-    public int 
+    public int hashCode() {
+        return Objects.hash(numerator, dominator);
+    }
+
+    @Override
+    public String toString() {
+        return "Rational{" +
+                "numerator=" + numerator +
+                ", dominator=" + dominator +
+                '}';
+    }
 }
