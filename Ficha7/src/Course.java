@@ -32,7 +32,7 @@ public class Course {
         return ects;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
@@ -67,5 +67,13 @@ public class Course {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "Course{" +
+                "code=" + code +
+                ", name='" + name + '\'' +
+                ", ects=" + ects +
+                ", year=" + year +
+                '}';
+    }
 }
